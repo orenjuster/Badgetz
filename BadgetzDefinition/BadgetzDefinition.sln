@@ -3,13 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Badgetz.Definition.WebService", "Badgetz.Definition.WebService\Badgetz.Definition.WebService.csproj", "{7405E49E-C09B-4E35-9887-15F029EABEE6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Badgetz.Definition.WebService", "Badgetz.Definition.WebService\Badgetz.Definition.WebService.csproj", "{7405E49E-C09B-4E35-9887-15F029EABEE6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{C9088CB5-C8F8-4DBC-A337-F47FA6BBB365}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BadgetzDefinition", "BadgetzDefinition", "{062107EB-BF77-40BA-A61D-72F7FE5B0C8F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Badgetz", "Badgetz", "{062107EB-BF77-40BA-A61D-72F7FE5B0C8F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Badgetz.Definition.Model", "Badgetz.Definition.Model\Badgetz.Definition.Model.csproj", "{E6DC4774-85CB-4C3E-B403-E0321EDB0744}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Badgetz.Definition.Model", "Badgetz.Definition.Model\Badgetz.Definition.Model.csproj", "{E6DC4774-85CB-4C3E-B403-E0321EDB0744}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "History", "History", "{1CA3B5D8-2988-46DA-815B-D3DD7A2D8593}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Users", "Users", "{176C4072-96BF-4A35-A596-6739E1B02998}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configuration", "{03F19216-ADB4-4DB6-B772-F59339D8C586}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Badgetz.Definition.Entities", "Badgetz.Definition.BusinessComponents\Badgetz.Definition.Entities.csproj", "{AB8D910C-51FF-4188-9BD9-98E36A0C9CB5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Badgetz.Definition.MongoRepository", "Badgetz.Definition.MongoRepository\Badgetz.Definition.MongoRepository.csproj", "{60C895C1-5D5C-4BDD-A52B-D59605270DFF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +35,14 @@ Global
 		{E6DC4774-85CB-4C3E-B403-E0321EDB0744}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E6DC4774-85CB-4C3E-B403-E0321EDB0744}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E6DC4774-85CB-4C3E-B403-E0321EDB0744}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB8D910C-51FF-4188-9BD9-98E36A0C9CB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB8D910C-51FF-4188-9BD9-98E36A0C9CB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB8D910C-51FF-4188-9BD9-98E36A0C9CB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB8D910C-51FF-4188-9BD9-98E36A0C9CB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60C895C1-5D5C-4BDD-A52B-D59605270DFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60C895C1-5D5C-4BDD-A52B-D59605270DFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60C895C1-5D5C-4BDD-A52B-D59605270DFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60C895C1-5D5C-4BDD-A52B-D59605270DFF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -33,6 +51,11 @@ Global
 		{7405E49E-C09B-4E35-9887-15F029EABEE6} = {062107EB-BF77-40BA-A61D-72F7FE5B0C8F}
 		{062107EB-BF77-40BA-A61D-72F7FE5B0C8F} = {C9088CB5-C8F8-4DBC-A337-F47FA6BBB365}
 		{E6DC4774-85CB-4C3E-B403-E0321EDB0744} = {062107EB-BF77-40BA-A61D-72F7FE5B0C8F}
+		{1CA3B5D8-2988-46DA-815B-D3DD7A2D8593} = {C9088CB5-C8F8-4DBC-A337-F47FA6BBB365}
+		{176C4072-96BF-4A35-A596-6739E1B02998} = {C9088CB5-C8F8-4DBC-A337-F47FA6BBB365}
+		{03F19216-ADB4-4DB6-B772-F59339D8C586} = {C9088CB5-C8F8-4DBC-A337-F47FA6BBB365}
+		{AB8D910C-51FF-4188-9BD9-98E36A0C9CB5} = {062107EB-BF77-40BA-A61D-72F7FE5B0C8F}
+		{60C895C1-5D5C-4BDD-A52B-D59605270DFF} = {062107EB-BF77-40BA-A61D-72F7FE5B0C8F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3BB423CF-C011-4ADD-858E-7DDE0C6F9026}
