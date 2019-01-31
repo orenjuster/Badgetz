@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+using Badgetz.Definition.Model.Entities;
+using Badgetz.Definition.Model.Repositories;
+using Badgetz.Definition.WebService.Contracts;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Badgetz.Definition.WebService.Controllers
@@ -12,35 +12,42 @@ namespace Badgetz.Definition.WebService.Controllers
     public class BadgetzController : ControllerBase
     {
         // GET: api/Badgetz
+        private readonly IBadgetDefinitionRepository _badgetDefinitionRepository;
+        private readonly IBadgetDefinitionFactory _badgetDefinitionFactory;
+
+        public BadgetzController(IBadgetDefinitionRepository badgetDefinitionRepository, IBadgetDefinitionFactory badgetDefinitionFactory)
+        {
+            _badgetDefinitionRepository = badgetDefinitionRepository;
+            _badgetDefinitionFactory = badgetDefinitionFactory;
+        }
+
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<IActionResult> Get()
         {
-            return new string[] { "value1", "value2" };
+            var badgetz = await _badgetDefinitionRepository.GetAll();
+
+            return new ObjectResult(badgetz);
         }
 
-        // GET: api/Badgetz/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        [HttpGet("{badgetId}")]
+        public async Task<IActionResult> Get(Guid badgetId)
         {
-            return "value";
+            var badget = await _badgetDefinitionRepository.GetById(badgetId);
+
+            if (badget == null) return NotFound();
+
+            return new ObjectResult(badget);
         }
 
-        // POST: api/Badgetz
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<IActionResult> Post([FromBody] AddBadgetDefinitionRequest request)
         {
-        }
+            // Raise an event eith the userId and badetId to bind the user to the badget
+            var badgetDefinition = _badgetDefinitionFactory.Create(request.Name, request.Description, request.UnitOfMeasure, request.UnitOfMeasurePerInterval, request.Interval, request.UserId);
 
-        // PUT: api/Badgetz/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
+            await _badgetDefinitionRepository.Add(badgetDefinition);
 
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            return new ObjectResult(badgetDefinition.Id);
         }
     }
 }
