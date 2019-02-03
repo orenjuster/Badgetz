@@ -1,4 +1,5 @@
 ﻿using Badgetz.Definition.Model.Entities;
+using Badgetz.Definition.Model.Repositories;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Badgetz.Definition.MongoRepository
 {
-    public class BadgetDefinitionMongoRepository
+    public class BadgetDefinitionMongoRepository : IBadgetDefinitionRepository
     {
         private IMongoCollection<BadgetDefinitionDto> _badgetzCollection;
         private readonly IBadgetDefinitionFactory _badgetDefinitionFactory;
@@ -82,17 +83,6 @@ namespace Badgetz.Definition.MongoRepository
             var resultsList = await searchResults.ToListAsync();
 
             return resultsList.Select(DtoToModel);
-        }
-
-        public IEnumerable<string> GetAllIntervals()
-        {
-            var configurations = _configurationCollection.Find(o => true);
-
-            var configuration = configurations.FirstOrDefault();
-
-            var intervals = configuration.ExtraData["IntervalTypes"];
-
-            return intervals as IEnumerable<string>;
         }
     }
 }

@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Badgetz.Definition.Entities;
+using Badgetz.Definition.Model.Entities;
+using Badgetz.Definition.Model.Repositories;
+using Badgetz.Definition.MongoRepository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -25,6 +29,10 @@ namespace Badgetz.Definition.WebService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddScoped<IBadgetDefinitionConfigurationRepository, BadgetDefinitionConfigurationMongoRepository>();
+            services.AddScoped<IBadgetDefinitionRepository, BadgetDefinitionMongoRepository>();
+            services.AddTransient<IBadgetDefinitionFactory, BadgetDefinitionFactory>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

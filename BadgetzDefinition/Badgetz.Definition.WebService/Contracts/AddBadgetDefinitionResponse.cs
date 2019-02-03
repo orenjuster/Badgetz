@@ -1,4 +1,4 @@
-﻿namespace Badgetz.Definition.WebService.Controllers
+﻿namespace Badgetz.Definition.WebService.Contracts
 {
     public class AddBadgetDefinitionResponse
     {

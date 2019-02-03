@@ -22,7 +22,7 @@ namespace Badgetz.Definition.WebService.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> GetAllBadgetz()
         {
             var badgetz = await _badgetDefinitionRepository.GetAll();
 
@@ -30,7 +30,7 @@ namespace Badgetz.Definition.WebService.Controllers
         }
 
         [HttpGet("{badgetId}")]
-        public async Task<IActionResult> Get(Guid badgetId)
+        public async Task<IActionResult> GetBadgetById(Guid badgetId)
         {
             var badget = await _badgetDefinitionRepository.GetById(badgetId);
 
@@ -40,9 +40,10 @@ namespace Badgetz.Definition.WebService.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] AddBadgetDefinitionRequest request)
+        public async Task<IActionResult> AddNewBadget([FromBody] AddBadgetDefinitionRequest request)
         {
-            // Raise an event eith the userId and badetId to bind the user to the badget
+            // TODO: Raise an event eith the userId and badetId to bind the user to the badget
+
             var badgetDefinition = _badgetDefinitionFactory.Create(request.Name, request.Description, request.UnitOfMeasure, request.UnitOfMeasurePerInterval, request.Interval, request.UserId);
 
             await _badgetDefinitionRepository.Add(badgetDefinition);

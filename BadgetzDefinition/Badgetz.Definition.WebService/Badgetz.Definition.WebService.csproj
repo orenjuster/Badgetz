@@ -17,7 +17,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Badgetz.Definition.BusinessComponents\Badgetz.Definition.Entities.csproj" />
     <ProjectReference Include="..\Badgetz.Definition.Model\Badgetz.Definition.Model.csproj" />
+    <ProjectReference Include="..\Badgetz.Definition.MongoRepository\Badgetz.Definition.MongoRepository.csproj" />
   </ItemGroup>
 
 </Project>

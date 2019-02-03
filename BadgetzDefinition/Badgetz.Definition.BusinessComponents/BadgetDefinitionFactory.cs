@@ -9,10 +9,12 @@ namespace Badgetz.Definition.Entities
     public class BadgetDefinitionFactory : IBadgetDefinitionFactory
     {
         private readonly IBadgetDefinitionRepository _badgetDefinitionRepository;
+        private readonly IBadgetDefinitionConfigurationRepository _badgetDefinitionConfigurationRepository;
 
-        public BadgetDefinitionFactory(IBadgetDefinitionRepository badgetDefinitionRepository)
+        public BadgetDefinitionFactory(IBadgetDefinitionRepository badgetDefinitionRepository, IBadgetDefinitionConfigurationRepository badgetDefinitionConfigurationRepository)
         {
             _badgetDefinitionRepository = badgetDefinitionRepository;
+            this._badgetDefinitionConfigurationRepository = badgetDefinitionConfigurationRepository;
         }
         public IBadgetDefinition Create(string name, string description, string unitOfMeasure, int unitOfMeasurePerIntraval, string interval, string userId)
         {
@@ -40,11 +42,10 @@ namespace Badgetz.Definition.Entities
 
         private void ValidateInterval(string interval)
         {
-            IEnumerable<string> intervals = _badgetDefinitionRepository.GetAllIntervals();
+            IEnumerable<string> intervals = _badgetDefinitionConfigurationRepository.GetAllIntervals();
 
             if (!intervals.Contains(interval))
                 throw new ArgumentException("Invalid Interval Provided", "Interval");
         }
     }
-
 }
