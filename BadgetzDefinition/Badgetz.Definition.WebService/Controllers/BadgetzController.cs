@@ -48,7 +48,9 @@ namespace Badgetz.Definition.WebService.Controllers
 
             await _badgetDefinitionRepository.Add(badgetDefinition);
 
-            return new ObjectResult(badgetDefinition.Id);
+            var response = new AddBadgetDefinitionResponse { BadgetId = badgetDefinition.Id };
+
+            return new ObjectResult(response);
         }
     }
 }

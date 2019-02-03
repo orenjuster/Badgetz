@@ -31,7 +31,7 @@ namespace Badgetz.Definition.MongoRepository
         {
             var configuration = GetBadgetDefinitionConfiguration();
 
-            return configuration.Intervals;
+            return configuration.IntervalTypes;
         }
 
         private BadgetzConfigurationDto GetBadgetDefinitionConfiguration()
@@ -45,7 +45,7 @@ namespace Badgetz.Definition.MongoRepository
         {
             var configuration = GetBadgetDefinitionConfiguration();
 
-            return configuration.UnitsOfMeasure;
+            return configuration.UnitOfMeasureTypes;
         }
     }
 }

@@ -5,7 +5,7 @@ namespace Badgetz.Definition.MongoRepository
 {
     class BadgetzConfigurationDto : MongoDbDtoBase
     {
-        public IEnumerable<string> Intervals { get; internal set; }
-        public IEnumerable<string> UnitsOfMeasure { get; internal set; }
+        public IEnumerable<string> IntervalTypes { get; internal set; }
+        public IEnumerable<string> UnitOfMeasureTypes { get; internal set; }
     }
 }

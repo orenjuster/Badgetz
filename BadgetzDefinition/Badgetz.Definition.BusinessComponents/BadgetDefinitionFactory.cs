@@ -8,13 +8,11 @@ namespace Badgetz.Definition.Entities
 {
     public class BadgetDefinitionFactory : IBadgetDefinitionFactory
     {
-        private readonly IBadgetDefinitionRepository _badgetDefinitionRepository;
         private readonly IBadgetDefinitionConfigurationRepository _badgetDefinitionConfigurationRepository;
 
-        public BadgetDefinitionFactory(IBadgetDefinitionRepository badgetDefinitionRepository, IBadgetDefinitionConfigurationRepository badgetDefinitionConfigurationRepository)
+        public BadgetDefinitionFactory(IBadgetDefinitionConfigurationRepository badgetDefinitionConfigurationRepository)
         {
-            _badgetDefinitionRepository = badgetDefinitionRepository;
-            this._badgetDefinitionConfigurationRepository = badgetDefinitionConfigurationRepository;
+            _badgetDefinitionConfigurationRepository = badgetDefinitionConfigurationRepository;
         }
         public IBadgetDefinition Create(string name, string description, string unitOfMeasure, int unitOfMeasurePerIntraval, string interval, string userId)
         {
