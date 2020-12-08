@@ -10,7 +10,7 @@ namespace Badgetz.Definition.MongoRepository
 
         public BadgetDefinitionConfigurationMongoRepository()   
         {
-            var client = new MongoClient("mongodb://mdorenjuster:subarub3@mdcluster-shard-00-00-mcvu5.mongodb.net:27017,mdcluster-shard-00-01-mcvu5.mongodb.net:27017,mdcluster-shard-00-02-mcvu5.mongodb.net:27017/test?ssl=true&replicaSet=MdCluster-shard-0&authSource=admin&retryWrites=true");
+            var client = new MongoClient("mongodb://XXX");
 
             var database = client.GetDatabase("BadgetzDB");
 
